@@ -3,7 +3,6 @@ import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:simplepaymentcard/core/utils/router/routes.dart';
 import 'package:simplepaymentcard/core/utils/styles/style.dart';
-import 'package:simplepaymentcard/feature/payment/presentation/views/widgets/custom_appbar_section.dart';
 import 'package:simplepaymentcard/feature/payment/presentation/views/widgets/custom_payment_methods_body_section.dart';
 
 class PaymentMethodsViewBody extends StatelessWidget {
@@ -15,12 +14,6 @@ class PaymentMethodsViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 40.0),
-            child: CustomAppBarSection(
-              title: "Payment Method",
-            ),
-          ),
           const CustomBodySecion(
             text: '*** *** *** 67',
             icon: Icons.credit_card,
@@ -49,9 +42,7 @@ class PaymentMethodsViewBody extends StatelessWidget {
                 "Add New Card",
                 style: AppStyles.textStyle24,
               )),
-          const SizedBox(
-            height: 60,
-          )
+         const Spacer(),
         ],
       ),
     );

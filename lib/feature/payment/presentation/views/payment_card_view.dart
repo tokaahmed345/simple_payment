@@ -6,6 +6,13 @@ class PaymentCardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: PaymentCardViewBody(),);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Add Card",
+        ),
+      ),
+      body: const  PaymentCardViewBody(),
+    );
   }
 }
