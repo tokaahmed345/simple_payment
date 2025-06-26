@@ -67,8 +67,8 @@ class BuildCardItem extends StatelessWidget {
             // المحتوى
             Padding(
               padding: const EdgeInsets.only(
-                top: 30,
-                left: 20,
+                top: 50,
+                left: 40,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,7 +124,7 @@ class BuildCardItem extends StatelessWidget {
                       const SizedBox(
                         width: 40,
                       ),
-                      Image.asset("assets/icon.png"),
+                      Image.asset("assets/images/icon.png"),
                     ],
                   ),
                   const Spacer(
