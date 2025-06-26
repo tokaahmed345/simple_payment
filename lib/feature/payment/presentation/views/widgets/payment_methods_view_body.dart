@@ -12,26 +12,46 @@ class PaymentMethodsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  const EdgeInsets.symmetric(horizontal: 10),
-      child:  Column(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
         children: [
-      const Padding(
-        padding: EdgeInsets.symmetric(vertical: 40.0),
-        child: CustomAppBarSection(title: "Payment Method",),
-      ),
-     const CustomBodySecion(text: '*** *** *** 67',icon: Icons.credit_card,),
-      const CustomBodySecion(text: 'Apple Play',icon: Icons.apple_outlined),
-     const CustomBodySecion(text: 'PayPal',icon: Icons.paypal_outlined,),
-      const CustomBodySecion(text: 'Cash',icon: Icons.attach_money,),
-      const Spacer(),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 40.0),
+            child: CustomAppBarSection(
+              title: "Payment Method",
+            ),
+          ),
+          const CustomBodySecion(
+            text: '*** *** *** 67',
+            icon: Icons.credit_card,
+          ),
+          const CustomBodySecion(
+              text: 'Apple Play', icon: Icons.apple_outlined),
+          const CustomBodySecion(
+            text: 'PayPal',
+            icon: Icons.paypal_outlined,
+          ),
+          const CustomBodySecion(
+            text: 'Cash',
+            icon: Icons.attach_money,
+          ),
+          const Spacer(),
 
 // CustomButton(text: 'Add New Card',onPressed:(){
 //   Get.toNamed(AppRoutes.paymentCard);
 
-// } 
-TextButton(onPressed: (){Get.toNamed(AppRoutes.paymentCard);},  child:const Text("Add New Card",style:AppStyles.textStyle24,) )
-,
-       const SizedBox(height: 60,)
+// }
+          TextButton(
+              onPressed: () {
+                Get.toNamed(AppRoutes.paymentCard);
+              },
+              child: const Text(
+                "Add New Card",
+                style: AppStyles.textStyle24,
+              )),
+          const SizedBox(
+            height: 60,
+          )
         ],
       ),
     );
