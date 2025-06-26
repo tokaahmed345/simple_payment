@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:simplepaymentcard/core/utils/colors/colors.dart';
 
-class CustomRadioButton extends StatefulWidget {
-  const CustomRadioButton({super.key});
-
-  @override
-  State<CustomRadioButton> createState() => _CustomRadioButtonState();
-}
-
-class _CustomRadioButtonState extends State<CustomRadioButton> {
-  bool isSelected=false;
+class CustomRadioButton extends StatelessWidget {
+  const CustomRadioButton({super.key, required this.onTap, required this.isSelected});
+final Function()? onTap;
+final bool isSelected;
     @override
   Widget build(BuildContext context) {
     return GestureDetector(
-  onTap: () {
-    setState(() {
-      isSelected = !isSelected;
-    });
-  },
+  onTap: onTap,
   child: Container(
     width: 24,
     height: 24,
