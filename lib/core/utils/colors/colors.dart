@@ -8,4 +8,5 @@ class AppColors{
  static const brownRosy= Color(0xffdcbeb6);
 static const beige=Color(0xfffaf0e6);
 static const orangeDark=Color(0xff4b4544);
+
 }
