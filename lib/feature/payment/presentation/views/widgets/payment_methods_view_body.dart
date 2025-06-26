@@ -44,7 +44,7 @@ class _PaymentMethodsViewBodyState extends State<PaymentMethodsViewBody> {
       index: 2,
       onTap: (){setState(() {
         selectedIndexed=2;
-      });},text: 'PayPal',image: 'assets/images/apple.png',),
+      });},text: 'PayPal',image: 'assets/images/paypal.png',),
        CustomBodySecion( selectedIndex: selectedIndexed,
       index: 3,
       onTap: (){setState(() {
