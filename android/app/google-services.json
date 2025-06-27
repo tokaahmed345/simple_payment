@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "339007831230",
+    "project_id": "simple-payment-f7477",
+    "storage_bucket": "simple-payment-f7477.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339007831230:android:43e59cd6287535dab5f2ef",
+        "android_client_info": {
+          "package_name": "com.example.simplepaymentcard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-KYesRsmrXWgmwk8XpLmzzxaqMf46K84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

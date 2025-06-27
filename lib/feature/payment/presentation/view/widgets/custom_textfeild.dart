@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:simplepaymentcard/core/utils/colors/colors.dart';
 
 class CustomTextFeild extends StatelessWidget {
-   CustomTextFeild({
+   const CustomTextFeild({
     super.key,
     this.text,
     this.maxLength,
