@@ -89,53 +89,59 @@ class BuildCardItem extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Card holder name',
-                            style: AppStyles.textStyle12,
-                          ),
-                          const SizedBox(height: 4),
-                          GetX(builder: (CardController cardController) {
-                            return SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.25,
-                              child: Text(
-                                cardController.cardHolderName.value,
+                      Flexible(
+                        flex: 1,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Card holder name',
+                              style: AppStyles.textStyle12,
+                            ),
+                            const SizedBox(height: 4),
+                            GetX(builder: (CardController cardController) {
+                              return SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.25,
+                                child: Text(
+                                  cardController.cardHolderName.value,
+                                  style: AppStyles.textStyle12.copyWith(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.teracotta,
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              );
+                            }),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 40,
+                      ),
+                      Flexible(
+                        flex: 1,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Expiry date',
+                              style: AppStyles.textStyle12,
+                            ),
+                            const SizedBox(height: 4),
+                            GetX(builder: (CardController cardController) {
+                              return Text(
+                                cardController.expiryDate.value,
                                 style: AppStyles.textStyle12.copyWith(
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.teracotta,
                                 ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            );
-                          }),
-                        ],
-                      ),
-                      const SizedBox(
-                        width: 40,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Expiry date',
-                            style: AppStyles.textStyle12,
-                          ),
-                          const SizedBox(height: 4),
-                          GetX(builder: (CardController cardController) {
-                            return Text(
-                              cardController.expiryDate.value,
-                              style: AppStyles.textStyle12.copyWith(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.teracotta,
-                              ),
-                            );
-                          }),
-                        ],
+                              );
+                            }),
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         width: 40,

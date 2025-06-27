@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:simplepaymentcard/core/services/firebase_services.dart';
 import 'package:simplepaymentcard/core/utils/app-pages/app_pages.dart';
 import 'package:simplepaymentcard/core/utils/theme/app_theme.dart';
 import 'package:simplepaymentcard/firebase_options.dart';
@@ -10,6 +11,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  FirebaseServices.initFirebaseCollections();
   runApp(const MyApp());
 }
 
