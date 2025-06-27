@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:simplepaymentcard/core/utils/colors/colors.dart';
 import 'package:simplepaymentcard/core/utils/styles/style.dart';
-import 'package:simplepaymentcard/feature/payment/presentation/views/widgets/custom_radio_button.dart';
+import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/custom_radio_button.dart';
 
 class CustomBodySecion extends StatelessWidget {
   const CustomBodySecion({super.key, required this.text,  this.icon, this.image, required this.index, required this.onTap, required this.selectedIndex});

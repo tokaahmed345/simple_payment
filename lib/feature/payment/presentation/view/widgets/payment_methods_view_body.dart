@@ -3,7 +3,7 @@ import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:simplepaymentcard/core/utils/router/routes.dart';
 import 'package:simplepaymentcard/core/utils/styles/style.dart';
-import 'package:simplepaymentcard/feature/payment/presentation/views/widgets/custom_payment_methods_body_section.dart';
+import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/custom_payment_methods_body_section.dart';
 
 class PaymentMethodsViewBody extends StatefulWidget {
   const PaymentMethodsViewBody({super.key});

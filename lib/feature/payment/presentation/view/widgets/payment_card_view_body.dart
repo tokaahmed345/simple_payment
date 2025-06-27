@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:simplepaymentcard/core/utils/styles/style.dart';
-import 'package:simplepaymentcard/feature/payment/presentation/views/widgets/build_card_item.dart';
+import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/build_card_item.dart';
 
-import 'package:simplepaymentcard/feature/payment/presentation/views/widgets/custom_text.dart';
-import 'package:simplepaymentcard/feature/payment/presentation/views/widgets/custom_textfeild.dart';
+import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/custom_text.dart';
+import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/custom_textfeild.dart';
 
 class PaymentCardViewBody extends StatelessWidget {
   const PaymentCardViewBody({super.key});

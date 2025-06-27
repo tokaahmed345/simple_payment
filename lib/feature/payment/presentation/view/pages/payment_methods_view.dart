@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simplepaymentcard/feature/payment/presentation/views/widgets/payment_methods_view_body.dart';
+import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/payment_methods_view_body.dart';
 
 class PaymentMethodsView extends StatelessWidget {
   const PaymentMethodsView({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:simplepaymentcard/core/utils/colors/colors.dart';
 import 'package:simplepaymentcard/core/utils/styles/style.dart';
-import 'package:simplepaymentcard/feature/payment/presentation/views/widgets/diagonal_clipper_right.dart';
-import 'package:simplepaymentcard/feature/payment/presentation/views/widgets/diagonal_clipper_left.dart';
+import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/diagonal_clipper_right.dart';
+import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/diagonal_clipper_left.dart';
 
 class BuildCardItem extends StatelessWidget {
   const BuildCardItem({super.key});
