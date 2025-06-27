@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get_instance/get_instance.dart';
+import 'package:get/route_manager.dart';
 import 'package:simplepaymentcard/core/utils/styles/style.dart';
 import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/build_card_item.dart';
+import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/build_expiry_date_item.dart';
 
 import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/custom_text.dart';
 import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/custom_textfeild.dart';
+import 'package:simplepaymentcard/feature/payment/presentation/view_model/card_controller.dart';
 
 class PaymentCardViewBody extends StatelessWidget {
-  const PaymentCardViewBody({super.key});
+  PaymentCardViewBody({super.key});
+  final CardController cardController = Get.put(CardController());
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +24,7 @@ class PaymentCardViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const BuildCardItem(),
+                BuildCardItem(),
                 const SizedBox(
                   height: 30,
                 ),
@@ -26,35 +32,36 @@ class PaymentCardViewBody extends StatelessWidget {
                   text: "Card Holder Name",
                 ),
                 const SizedBox(height: 4),
-                const CustomTextFeild(
+                CustomTextFeild(
                   text: "Enter Your Card Holder Name",
+                  onChanged: (value) {
+                    // Handle card holder name input
+                    cardController.updateCardHolderName(value);
+                  },
                 ),
                 const SizedBox(height: 40),
                 const CustomText(
                   text: "Card Number",
                 ),
                 const SizedBox(height: 4),
-                const CustomTextFeild(
+                CustomTextFeild(
                   text: "Enter Your Card Number",
                   maxLength: 16,
+                  onChanged: (value) {
+                    // Handle card number input
+                    cardController.updateCardNumber(value);
+                  },
                 ),
                 const SizedBox(height: 40),
-                const Row(
+                Row(
                   children: [
                     SizedBox(
                       width: 80,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomText(text: "Expiry Date"),
-                          SizedBox(height: 4),
-                          CustomTextFeild(
-                            maxLength: 4,
-                          ),
-                        ],
+                      child: BuildExpiryDateTxtField(
+                        cardController: cardController,
                       ),
                     ),
-                    Spacer(
+                    const Spacer(
                       flex: 4,
                     ),
                     SizedBox(
@@ -62,17 +69,23 @@ class PaymentCardViewBody extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Align(
+                          const Align(
                               alignment: Alignment.center,
                               child: CustomText(text: "CVV")),
-                          SizedBox(height: 4),
+                          const SizedBox(height: 4),
                           CustomTextFeild(
                             maxLength: 3,
+                            onChanged: (value) {
+                              // Handle CVV input
+                              cardController.updateCvv(value);
+                            },
+                            textAlign: TextAlign.center,
+                            keyboardType: TextInputType.number,
                           ),
                         ],
                       ),
                     ),
-                    Spacer(
+                    const Spacer(
                       flex: 3,
                     ),
                   ],

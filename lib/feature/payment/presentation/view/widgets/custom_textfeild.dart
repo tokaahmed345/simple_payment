@@ -1,16 +1,28 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:simplepaymentcard/core/utils/colors/colors.dart';
 
 class CustomTextFeild extends StatelessWidget {
-  const CustomTextFeild({
+   CustomTextFeild({
     super.key,
     this.text,
     this.maxLength,
+    this.onChanged,
+    this.inputFormatters ,
+    this.keyboardType,
+    this.textAlign ,
+    this.buildCounter,
   });
   final String? text;
   final int? maxLength;
+  final void Function(String)? onChanged;
+  final List<TextInputFormatter>? inputFormatters;
+  final TextInputType? keyboardType;
+  final TextAlign? textAlign;
+  final Widget Function(BuildContext, {int? currentLength, bool? isFocused, int? maxLength})? buildCounter;
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +48,12 @@ class CustomTextFeild extends StatelessWidget {
         filled: true,
       ),
       maxLength: maxLength ?? 30,
+      onChanged: onChanged,
+      inputFormatters: inputFormatters,
+      keyboardType: keyboardType,
+      textAlign:textAlign?? TextAlign.start,
+      buildCounter: buildCounter,
+
     );
   }
 }

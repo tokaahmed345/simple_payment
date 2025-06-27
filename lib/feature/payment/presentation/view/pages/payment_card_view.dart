@@ -13,7 +13,7 @@ class PaymentCardView extends StatelessWidget {
           "Add Card",
         ),
       ),
-      body: const PaymentCardViewBody(),
+      body:  PaymentCardViewBody(),
     );
   }
 }

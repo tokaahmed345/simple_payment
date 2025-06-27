@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:simplepaymentcard/core/utils/colors/colors.dart';
 import 'package:simplepaymentcard/core/utils/styles/style.dart';
 import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/diagonal_clipper_right.dart';
 import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/diagonal_clipper_left.dart';
+import 'package:simplepaymentcard/feature/payment/presentation/view_model/card_controller.dart';
 
 class BuildCardItem extends StatelessWidget {
-  const BuildCardItem({super.key});
+  BuildCardItem({super.key});
+
+  final CardController cardController = Get.put(CardController());
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +19,12 @@ class BuildCardItem extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: AppColors.beige,
-        boxShadow:const [
+        boxShadow: const [
           BoxShadow(
-           color: Color.fromRGBO(0, 0, 0, 0.08),
-           // color: Colors.black.withOpacity(0.08),  // deprecated
+            color: Color.fromRGBO(0, 0, 0, 0.08),
+            // color: Colors.black.withOpacity(0.08),  // deprecated
             blurRadius: 6,
-            offset:  Offset(0, 3),
+            offset: Offset(0, 3),
           ),
         ],
       ),
@@ -75,10 +79,12 @@ class BuildCardItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Spacer(flex: 7),
-                  const Text(
-                    '000 000 000 0000',
-                    style: AppStyles.textStyle18,
-                  ),
+                  GetX(builder: (CardController cardController) {
+                    return Text(
+                      cardController.cardNumber.value,
+                      style: AppStyles.textStyle18,
+                    );
+                  }),
                   const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -91,14 +97,21 @@ class BuildCardItem extends StatelessWidget {
                             style: AppStyles.textStyle12,
                           ),
                           const SizedBox(height: 4),
-                          Text(
-                            'Kathryn Murphy',
-                            style: AppStyles.textStyle12.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.teracotta,
-                            ),
-                          ),
+                          GetX(builder: (CardController cardController) {
+                            return SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.25,
+                              child: Text(
+                                cardController.cardHolderName.value,
+                                style: AppStyles.textStyle12.copyWith(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.teracotta,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            );
+                          }),
                         ],
                       ),
                       const SizedBox(
@@ -112,14 +125,16 @@ class BuildCardItem extends StatelessWidget {
                             style: AppStyles.textStyle12,
                           ),
                           const SizedBox(height: 4),
-                          Text(
-                            '04/28',
-                            style: AppStyles.textStyle12.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.teracotta,
-                            ),
-                          ),
+                          GetX(builder: (CardController cardController) {
+                            return Text(
+                              cardController.expiryDate.value,
+                              style: AppStyles.textStyle12.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.teracotta,
+                              ),
+                            );
+                          }),
                         ],
                       ),
                       const SizedBox(
