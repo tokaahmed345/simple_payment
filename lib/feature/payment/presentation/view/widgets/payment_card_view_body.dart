@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/route_manager.dart';
-import 'package:simplepaymentcard/core/services/firebase_services.dart';
 import 'package:simplepaymentcard/core/utils/styles/style.dart';
 import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/build_card_item.dart';
 import 'package:simplepaymentcard/feature/payment/presentation/view/widgets/build_expiry_date_item.dart';
@@ -13,7 +12,6 @@ import 'package:simplepaymentcard/feature/payment/presentation/view_model/card_c
 class PaymentCardViewBody extends StatelessWidget {
   PaymentCardViewBody({super.key});
   final CardController cardController = Get.put(CardController());
-  final FirebaseServices firebaseServices = FirebaseServices();
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +81,9 @@ class PaymentCardViewBody extends StatelessWidget {
               const SizedBox(height: 20),
               Center(
                 child: TextButton(
-                  onPressed: saveData,
+                  onPressed: () {
+                    cardController.saveCardData();
+                  },
                   child: const Text(
                     "Save Card",
                     style: AppStyles.textStyle24,
@@ -96,32 +96,5 @@ class PaymentCardViewBody extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  void saveData() {
-    if (cardController.cardHolderName.value.isEmpty ||
-        cardController.cardNumber.value.isEmpty ||
-        cardController.expiryDate.value.isEmpty ||
-        cardController.cvv.value.isEmpty) {
-      Get.snackbar("Error", "Please fill in all fields",
-          snackPosition: SnackPosition.BOTTOM);
-      return;
-    } else {
-      firebaseServices
-          .addPaymentMethods(
-        cardController.cardHolderName.value,
-        cardController.cardNumber.value,
-        cardController.expiryDate.value,
-        cardController.cvv.value,
-      )
-          .then((value) {
-        Get.snackbar("Success", "Card added successfully",
-            snackPosition: SnackPosition.BOTTOM);
-        Get.back();
-      }).catchError((error) {
-        Get.snackbar("Error", "Failed to add card: $error",
-            snackPosition: SnackPosition.BOTTOM);
-      });
-    }
   }
 }

@@ -7,7 +7,7 @@ class AppPages {
 
 static final pages=[
   GetPage(name: AppRoutes.paymentMethods, page: ()=>const PaymentMethodsView()),
-  GetPage(name: AppRoutes.paymentCard, page: ()=>const PaymentCardView())
+  GetPage(name: AppRoutes.paymentCard, page: ()=> PaymentCardView())
 
 
 
