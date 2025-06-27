@@ -14,7 +14,7 @@ class FirebaseServices {
   }
 
   Future<void> addPaymentMethods(
-      String holder, String number, String expiryDate, String cvv) async {
+      String holder, String number, String expiryDate, String cvv, String fileImagePath) async {
     final counterRef = counterCollection!.doc('currentUserIdCounter');
 
     // Run a transaction to safely increment the counter and add the new document with the new ID
@@ -30,6 +30,7 @@ class FirebaseServices {
         number,
         expiryDate,
         cvv,
+        fileImagePath,
       );
     }).then((_) {
       log("Payment method added with incremental ID ");
@@ -62,13 +63,16 @@ class FirebaseServices {
       String holder,
       String number,
       String expiryDate,
-      String cvv) async {
+      String cvv,
+      String fileImagePath,
+      ) async {
     transaction.set(paymentMethodsCollection.doc(), {
       'id': userId,
       'holder': holder,
       'number': number,
       'expiryDate': expiryDate,
       'cvv': cvv,
+      'fileImagePath': fileImagePath,
     });
   }
 

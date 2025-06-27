@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:simplepaymentcard/core/services/firebase_services.dart';
@@ -45,6 +44,7 @@ class CardController extends GetxController {
         cardNumber.value,
         expiryDate.value,
         cvv.value,
+        fileImagePath.value,
       )
           .then((value) {
         Get.snackbar("Success", "Card added successfully",
@@ -57,18 +57,31 @@ class CardController extends GetxController {
     }
   }
 
-  Future<dynamic> pickProfileImage() async {
+  Future<dynamic> pickProfileImageFromGallery() async {
     final ImagePicker picker = ImagePicker();
-
     // Pick an image from the gallery
     final XFile? pickedFile =
         await picker.pickImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
-      fileImagePath = pickedFile.path.obs;
-      
+      fileImagePath.value = pickedFile.path;
     } else {
       Get.snackbar("Error", "No image selected",
+          snackPosition: SnackPosition.BOTTOM);
+      return;
+    }
+  }
+
+  Future<dynamic> pickProfileImageFromCamera() async {
+    final ImagePicker picker = ImagePicker();
+    // Pick an image from the camera
+    final XFile? pickedFile =
+        await picker.pickImage(source: ImageSource.camera);
+
+    if (pickedFile != null) {
+      fileImagePath.value = pickedFile.path;
+    } else {
+      Get.snackbar("Error", "No image captured",
           snackPosition: SnackPosition.BOTTOM);
       return;
     }
