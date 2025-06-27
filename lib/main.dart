@@ -21,3 +21,15 @@ class MyApp extends StatelessWidget {
   }
   
   }
+
+
+  // Remember this note
+  /**
+   *  MVVM Architecture: is divided into 2 main layers:
+   * 
+   * 1. Presentation Layer: Contains the UI and the logic to handle user interactions.  (View - ViewModel)
+   * 2- Data Layer: Contains the data sources and repositories that provide data to the presentation layer. (Model)
+   * 
+   * 
+   * 
+   */

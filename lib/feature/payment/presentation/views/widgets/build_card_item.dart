@@ -15,11 +15,12 @@ class BuildCardItem extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: AppColors.beige,
-        boxShadow: [
+        boxShadow:const [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+           color: Color.fromRGBO(0, 0, 0, 0.08),
+           // color: Colors.black.withOpacity(0.08),  // deprecated
             blurRadius: 6,
-            offset: const Offset(0, 3),
+            offset:  Offset(0, 3),
           ),
         ],
       ),
@@ -75,7 +76,7 @@ class BuildCardItem extends StatelessWidget {
                 children: [
                   const Spacer(flex: 7),
                   const Text(
-                    '000 000 000 00',
+                    '000 000 000 0000',
                     style: AppStyles.textStyle18,
                   ),
                   const SizedBox(height: 10),

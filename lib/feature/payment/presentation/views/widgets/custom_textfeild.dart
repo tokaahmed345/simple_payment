@@ -7,8 +7,10 @@ class CustomTextFeild extends StatelessWidget {
   const CustomTextFeild({
     super.key,
     this.text,
+    this.maxLength,
   });
   final String? text;
+  final int? maxLength;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,7 @@ class CustomTextFeild extends StatelessWidget {
         fillColor: AppColors.beige,
         filled: true,
       ),
+      maxLength: maxLength ?? 30,
     );
   }
 }
